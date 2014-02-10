@@ -1328,7 +1328,7 @@ li {
             </aside>
             
             <aside class="page_number">
-              1/10
+              1/12
             </aside>
           </footer>
         </div>
@@ -1368,7 +1368,7 @@ li {
             </aside>
             
             <aside class="page_number">
-              2/10
+              2/12
             </aside>
           </footer>
         </div>
@@ -1405,7 +1405,7 @@ li {
             </aside>
             
             <aside class="page_number">
-              3/10
+              3/12
             </aside>
           </footer>
         </div>
@@ -1442,7 +1442,7 @@ li {
             </aside>
             
             <aside class="page_number">
-              4/10
+              4/12
             </aside>
           </footer>
         </div>
@@ -1481,7 +1481,7 @@ li {
             </aside>
             
             <aside class="page_number">
-              5/10
+              5/12
             </aside>
           </footer>
         </div>
@@ -1501,7 +1501,7 @@ li {
 <p>I am tending to name the file with the event date in the filename. The date in the post should be when it was written.</p>
 <p>The contents of the post need at least the Title and Date meta data in the header. Contents of the post is regular Markdown below the header lines.</p>
 <pre>Title: Lightning Talks
-Date: 2014-01-13 22:33
+Date: 2014-02-13 22:33
 
 Some contents here...
 </pre></section>
@@ -1520,7 +1520,7 @@ Some contents here...
             </aside>
             
             <aside class="page_number">
-              6/10
+              6/12
             </aside>
           </footer>
         </div>
@@ -1542,7 +1542,7 @@ Some contents here...
 <span class="go">$ git commit -m &quot;What I did here was add a new post&quot;</span>
 <span class="go">$ git push origin master</span>
 </pre>
-<p>Deploying to github is made easy using ghp-import and Pelcian's Makefile:</p>
+<p>Deploying to github is made easy using ghp-import and Pelican's Makefile:</p>
 <pre><span class="go">$ make github</span>
 </pre></section>
             
@@ -1560,7 +1560,7 @@ Some contents here...
             </aside>
             
             <aside class="page_number">
-              7/10
+              7/12
             </aside>
           </footer>
         </div>
@@ -1574,7 +1574,7 @@ Some contents here...
             <header><h1>Easy Way to Make Posts</h1></header>
             
             
-            <section><p>Since we are using the SGVTech Meetup Group, I made a script to easily convert the contents of the meetup events into Markdown for Pelcian. It also adds some meta data about the event data and location.</p></section>
+            <section><p>Since we are using the SGVTech Meetup Group, I made a script to easily convert the contents of the meetup events into Markdown for Pelican. It also adds some meta data about the event data and location.</p></section>
             
           </div>
           <div class="presenter_notes">
@@ -1590,7 +1590,7 @@ Some contents here...
             </aside>
             
             <aside class="page_number">
-              8/10
+              8/12
             </aside>
           </footer>
         </div>
@@ -1601,23 +1601,82 @@ Some contents here...
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Set up meetup2md</h1></header>
+            <header><h1>Obtain meetup2md</h1></header>
             
             
-            <section><pre><span class="go">$ git clone https://github.com/omwah/meetup2md.git</span>
+            <section><p>Download meetup2md from Github and initialize it's submodules:</p>
+<pre><span class="go">$ git clone https://github.com/omwah/meetup2md.git</span>
 <span class="go">$ git submodule init</span>
 <span class="go">$ git submodule update</span>
 <span class="go">$ cd meetup2md</span>
-</pre>
-<p>We need to set up OAuth so the script can access Meetup. Create a new consumer key and secret here:
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation.rst">presentation.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/12
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Authorize meetup2md</h1></header>
+            
+            
+            <section><p>We need to set up OAuth so the script can access Meetup. Create a new consumer key and secret here:
 <a class="reference external" href="https://secure.meetup.com/meetup_api/oauth_consumers/create">https://secure.meetup.com/meetup_api/oauth_consumers/create</a></p>
 <p>Set up authentication with the program:</p>
 <pre><span class="go">$ ./meetup2md.py --consumer &lt;key_from_website&gt; &lt;secret_from_website&gt;</span>
 </pre>
 <p>Hit allow on the web page that is loaded by the script. Now pass the verification code to the script:</p>
 <pre><span class="go">$ ./meetup2md.py --verifier 183742</span>
-</pre>
-<p>Now edit the [events] section of app.cfg to allow us to easily to filter out SGVLUG events:</p>
+</pre></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation.rst">presentation.rst</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/12
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation.rst -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Configure meetup2md for LUG</h1></header>
+            
+            
+            <section><p>Edit the [events] section of app.cfg to allow us to easily to filter out SGVLUG events:</p>
 <pre><span class="go">[events]</span>
 <span class="go">group_name = SGVTech</span>
 <span class="go">name_filter = SGV Linux Users Group Monthly Meeting</span>
@@ -1638,7 +1697,7 @@ Some contents here...
             </aside>
             
             <aside class="page_number">
-              9/10
+              11/12
             </aside>
           </footer>
         </div>
@@ -1663,7 +1722,9 @@ Some contents here...
 <span class="go"> -&gt; content/posts/2014-02-13-lightning-talks.md</span>
 <span class="go">----</span>
 </pre>
-<p>Load up the devserver to check the post then commit if everything looks fine.</p></section>
+<p>Load up the devserver to check the post then commit if everything looks fine.</p>
+<p>For more details on arguments to meetup2md.py see the README on Github:</p>
+<p><a class="reference external" href="https://github.com/omwah/meetup2md/blob/master/README.rst">https://github.com/omwah/meetup2md/blob/master/README.rst</a></p></section>
             
           </div>
           <div class="presenter_notes">
@@ -1679,7 +1740,7 @@ Some contents here...
             </aside>
             
             <aside class="page_number">
-              10/10
+              12/12
             </aside>
           </footer>
         </div>
@@ -1742,14 +1803,26 @@ Some contents here...
       
       
       <tr id="toc-row-9">
-        <th><a href="#slide9">Set up meetup2md</a></th>
+        <th><a href="#slide9">Obtain meetup2md</a></th>
         <td><a href="#slide9">9</a></td>
       </tr>
       
       
       <tr id="toc-row-10">
-        <th><a href="#slide10">Creating an Article from a Meetup Event</a></th>
+        <th><a href="#slide10">Authorize meetup2md</a></th>
         <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">Configure meetup2md for LUG</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">Creating an Article from a Meetup Event</a></th>
+        <td><a href="#slide12">12</a></td>
       </tr>
       
       

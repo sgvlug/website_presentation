@@ -86,7 +86,7 @@ The contents of the post need at least the Title and Date meta data in the heade
 .. sourcecode:: markdown
 
     Title: Lightning Talks
-    Date: 2014-01-13 22:33
+    Date: 2014-02-13 22:33
 
     Some contents here...
 
@@ -110,7 +110,7 @@ Once you are satisfied with the changes then use git to save your changes and up
     $ git push origin master
 
 
-Deploying to github is made easy using ghp-import and Pelcian's Makefile:
+Deploying to github is made easy using ghp-import and Pelican's Makefile:
 
 .. sourcecode:: shell-session
 
@@ -121,12 +121,14 @@ Deploying to github is made easy using ghp-import and Pelcian's Makefile:
 Easy Way to Make Posts
 ======================
 
-Since we are using the SGVTech Meetup Group, I made a script to easily convert the contents of the meetup events into Markdown for Pelcian. It also adds some meta data about the event data and location.
+Since we are using the SGVTech Meetup Group, I made a script to easily convert the contents of the meetup events into Markdown for Pelican. It also adds some meta data about the event data and location.
 
 ----
 
-Set up meetup2md
+Obtain meetup2md
 ================
+
+Download meetup2md from Github and initialize it's submodules:
 
 .. sourcecode:: shell-session
 
@@ -134,6 +136,11 @@ Set up meetup2md
     $ git submodule init
     $ git submodule update
     $ cd meetup2md
+
+----
+
+Authorize meetup2md
+===================
 
 We need to set up OAuth so the script can access Meetup. Create a new consumer key and secret here:
 https://secure.meetup.com/meetup_api/oauth_consumers/create
@@ -150,7 +157,12 @@ Hit allow on the web page that is loaded by the script. Now pass the verificatio
 
     $ ./meetup2md.py --verifier 183742
 
-Now edit the [events] section of app.cfg to allow us to easily to filter out SGVLUG events:
+----
+
+Configure meetup2md for LUG
+===========================
+
+Edit the [events] section of app.cfg to allow us to easily to filter out SGVLUG events:
 
 .. sourcecode:: shell-session
 
@@ -182,3 +194,7 @@ You will see something like this:
     ----
 
 Load up the devserver to check the post then commit if everything looks fine.
+
+For more details on arguments to meetup2md.py see the README on Github:
+
+https://github.com/omwah/meetup2md/blob/master/README.rst
