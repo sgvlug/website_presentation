@@ -1753,7 +1753,6 @@ Itemized lists look like:
 <pre><span class="go">$ git clone https://github.com/omwah/meetup2md.git</span>
 <span class="go">$ git submodule init</span>
 <span class="go">$ git submodule update</span>
-<span class="go">$ cd meetup2md</span>
 </pre></section>
             
           </div>
@@ -1787,10 +1786,10 @@ Itemized lists look like:
             <section><p>We need to set up OAuth so the script can access Meetup. Create a new consumer key and secret here:
 <a class="reference external" href="http://meetup.com/meetup_api/oauth_consumers">http://meetup.com/meetup_api/oauth_consumers</a></p>
 <p>Set up authentication with the program:</p>
-<pre><span class="go">$ ./meetup2md.py --consumer &lt;key&gt; &lt;secret&gt;</span>
+<pre><span class="go">$ meetup2md.py --consumer &lt;key&gt; &lt;secret&gt;</span>
 </pre>
 <p>Hit allow on the web page that is loaded by the script. Now pass the verification code to the script:</p>
-<pre><span class="go">$ ./meetup2md.py --verifier 183742</span>
+<pre><span class="go">$ meetup2md.py --verifier 183742</span>
 </pre></section>
             
           </div>
@@ -1857,7 +1856,7 @@ Itemized lists look like:
             
             
             <section><p>From the sgvtech_website directory you can create a post for the SGVLUG meetups scheduled within the next month:</p>
-<pre><span class="go">$ ./meetup2md.py -t ,1m -o content/posts</span>
+<pre><span class="go">$ meetup2md.py -t ,1m -o content/posts</span>
 </pre>
 <ul class="simple">
 <li>-t indicates a time range</li>
