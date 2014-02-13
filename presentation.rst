@@ -4,6 +4,8 @@ SGVLUG Website Notes
 
 http://www.sgvlug.org/
 
+http://github.com/sgvlug/
+
 James McDuffie
 
 ----
@@ -40,7 +42,7 @@ We are Using Pelican
 - Python based static site generator
 - Write content with either Markdown, reStructuredText or AsciiDoc
 - Very active community
-  - Freenode IRC #pelrican
+  - Freenode IRC #pelican
 - Many themes and plugins available
 - http://docs.getpelican.com/
 
@@ -81,6 +83,11 @@ Open an editor to create a new post:
 
 I am tending to name the file with the event date in the filename. The date in the post should be when it was written.
 
+----
+
+Creating a New Post
+===================
+
 The contents of the post need at least the Title and Date meta data in the header. Contents of the post is regular Markdown below the header lines.
 
 .. sourcecode:: markdown
@@ -88,20 +95,34 @@ The contents of the post need at least the Title and Date meta data in the heade
     Title: Lightning Talks
     Date: 2014-02-13 22:33
 
-    Some contents here...
+    Paragraphs are separated by a blank line.
+
+    2nd paragraph. *Italic*, **bold**, `monospace`. 
+    Itemized lists look like:
+
+      * this one
+      * that one
+      * the other one
 
 ----
 
-Testing Website and Deploying
-=============================
+Testing Website
+===============
 
-Pelican includes a small development server so you can test what the site will look like when you deploy it. After running the following navigate to http://localhost:8000/
+Pelican includes a small development server so you can see what the site will look like when you deploy it. Run the following:
 
 .. sourcecode:: shell-session
 
    $ make devserver
 
-Once you are satisfied with the changes then use git to save your changes and upload to Github:
+Then navigate to http://localhost:8000/
+
+----
+
+Deploying Website
+=================
+
+Once you are satisfied with the changes, use git to save your changes and upload to Github:
 
 .. sourcecode:: shell-session
 
@@ -143,13 +164,13 @@ Authorize meetup2md
 ===================
 
 We need to set up OAuth so the script can access Meetup. Create a new consumer key and secret here:
-https://secure.meetup.com/meetup_api/oauth_consumers/create
+http://meetup.com/meetup_api/oauth_consumers
 
 Set up authentication with the program:
 
 .. sourcecode:: shell-session
     
-    $ ./meetup2md.py --consumer <key_from_website> <secret_from_website>
+    $ ./meetup2md.py --consumer <key> <secret>
 
 Hit allow on the web page that is loaded by the script. Now pass the verification code to the script:
 
@@ -176,11 +197,19 @@ Edit the [events] section of app.cfg to allow us to easily to filter out SGVLUG 
 Creating an Article from a Meetup Event
 =======================================
 
-From your sgvtech_website directory you can create a post for the SGVLUG meetups scheduled within the next month:
+From the sgvtech_website directory you can create a post for the SGVLUG meetups scheduled within the next month:
     
 .. sourcecode:: shell-session
 
     $ ./meetup2md.py -t ,1m -o content/posts
+
+* -t indicates a time range
+* -o specifies where to output files
+
+----
+
+Creating an Article from a Meetup Event
+=======================================
 
 You will see something like this:
 
@@ -193,8 +222,13 @@ You will see something like this:
      -> content/posts/2014-02-13-lightning-talks.md
     ----
 
-Load up the devserver to check the post then commit if everything looks fine.
+----
+
+Finishing Up
+============
+
+Load up the devserver to check the post, commit if everything looks fine.
 
 For more details on arguments to meetup2md.py see the README on Github:
 
-https://github.com/omwah/meetup2md/blob/master/README.rst
+http://github.com/omwah/meetup2md/
