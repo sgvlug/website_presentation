@@ -156,7 +156,6 @@ Download meetup2md from Github and initialize it's submodules:
     $ git clone https://github.com/omwah/meetup2md.git
     $ git submodule init
     $ git submodule update
-    $ cd meetup2md
 
 ----
 
@@ -170,13 +169,13 @@ Set up authentication with the program:
 
 .. sourcecode:: shell-session
     
-    $ ./meetup2md.py --consumer <key> <secret>
+    $ meetup2md.py --consumer <key> <secret>
 
 Hit allow on the web page that is loaded by the script. Now pass the verification code to the script:
 
 .. sourcecode:: shell-session
 
-    $ ./meetup2md.py --verifier 183742
+    $ meetup2md.py --verifier 183742
 
 ----
 
@@ -201,7 +200,7 @@ From the sgvtech_website directory you can create a post for the SGVLUG meetups 
     
 .. sourcecode:: shell-session
 
-    $ ./meetup2md.py -t ,1m -o content/posts
+    $ meetup2md.py -t ,1m -o content/posts
 
 * -t indicates a time range
 * -o specifies where to output files
